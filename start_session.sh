@@ -9,16 +9,23 @@ if [ $? -eq 0 ]; then
 fi
 
 # 创建新的会话 + 第一个窗口 main
-tmux new-session -d -s $SESSION -n bash
-
-# 在第一个窗口的 pane 里执行初始化命令
-tmux send-keys -t $SESSION:main 'cd ~/LLM-from-scratch && conda activate nanoGPT' C-m
-tmux send-keys -t $SESSION:main 'clear' C-m
+WINDOW_1="nanoGPT"
+tmux new-session -d -s $SESSION -n $WINDOW_1
+tmux send-keys -t $SESSION:$WINDOW_1 'cd ~/nanoGPT && conda activate nanoGPT' C-m
+tmux send-keys -t $SESSION:$WINDOW_1 'clear' C-m
 
 # 创建新窗口 GPU 并运行 nvitop
-tmux new-window -t $SESSION -n GPU
-tmux send-keys -t $SESSION:GPU 'nvitop' C-m
+WINDOW_2="GPU"
+tmux new-window -t $SESSION -n $WINDOW_2
+tmux send-keys -t $SESSION:$WINDOW_2 'conda activate nanoGPT' C-m
+tmux send-keys -t $SESSION:$WINDOW_2 'nvitop' C-m
+
+# 创建新窗口 Lab 并运行 nvitop
+WINDOW_3="Lab"
+tmux new-window -t $SESSION -n $WINDOW_3
+tmux send-keys -t $SESSION:$WINDOW_3 'conda activate nanoGPT' C-m
+tmux send-keys -t $SESSION:$WINDOW_3 'clear' C-m
 
 # attach 到第一个窗口 bash
-tmux select-window -t $SESSION:bash
+tmux select-window -t $SESSION:$WINDOW_1
 tmux attach -t $SESSION
