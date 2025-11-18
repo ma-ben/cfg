@@ -10,8 +10,8 @@ if [ "$#" -ne 3 ]; then
     exit 1
 fi
 
-PROJECT_DIR="$1"
-SESSION="$2"
+SESSION="$1"
+PROJECT_DIR="$2"
 ENV_NAME="$3"
 
 cd "$PROJECT_DIR" || { echo "路径不存在: $PROJECT_DIR"; exit 1; }
