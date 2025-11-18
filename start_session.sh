@@ -6,7 +6,7 @@
 #   ./tmux_dev.sh ~/nanoGPT nanoGPT nanoGPT
 
 if [ "$#" -ne 3 ]; then
-    echo "Usage: $0 <PROJECT_DIR> <SESSION_NAME> <CONDA_ENV>"
+    echo "Usage: $0 <SESSION_NAME> <PROJECT_DIR> <CONDA_ENV>"
     exit 1
 fi
 
