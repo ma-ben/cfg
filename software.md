@@ -1,9 +1,7 @@
 ## 电脑
 1. Clash(外网)
-4. ChatGPT
-5. Edge_dev(沉浸式翻译，YouTube双语字幕)
+5. Chrom
 6. VScode
-7. OneNote(笔记)
 8. NotebookLM
 9. Dropbox
 
